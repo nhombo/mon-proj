@@ -2,6 +2,9 @@
   "name": "mon-proj",
   "version": "1.0.0",
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
     "jquery": "^3.3.1",
     "normalize.css": "^8.0.0"
   },
