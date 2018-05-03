@@ -8,9 +8,14 @@
   &--is-expanded {
     background-color: rgba($mainBlue, .55);
   }
-
+  
   @mixin atMedium {
+    position: fixed;
     background-color: rgba($mainBlue, .3);
+
+    &--dark {
+      background-color: rgba(23, 51, 72, .85);
+    }
   }
 
   &__btn-container {
@@ -24,6 +29,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%) scale(.8);
+    transition: transform .3s ease-out;
     transform-origin: 50% 0;
     background-color: $mainBlue;
     padding: 25px 36px;
@@ -31,6 +37,10 @@
     @mixin atMedium {
       left: auto;
       transform: translateX(0);
+
+      .site-header--dark & {
+        transform: scale(.57);
+      }
     }
   }
 
@@ -40,64 +50,64 @@
 
   &__menu-icon {
     width: 20px;
-    height: 20px;
+    height: 19px;
     position: absolute;
     z-index: 10;
     top: 10px;
     right: 10px;
-    transform: translateX(-20%);
 
-    &::before{
+    &::before {
       content: "";
       position: absolute;
-      top:0;
-      left:0;
-      width:25px;
-      height: 4px;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
       background-color: #FFF;
       transform-origin: 0 0;
       transition: transform .3s ease-out;
-
     }
-    &__middle{
-        position: absolute;
-        top:10px;
-        left:0;
-        width:25px;
-        height: 4px;
-        background-color: #FFF;
-        transition: all .3s ease-out;
-        transform-origin: 0 50%;
-      }
 
-    &::after{
-        content: "";
-        position: absolute;
-        top:20px;
-        left:0;
-        width:25px;
-        height: 4px;
-        background-color: #FFF;
-        transform-origin: 0 100%;
-        transition: transform .3s ease-out;
-      }
+    &__middle {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      transition: all .3s ease-out;
+      transform-origin: 0 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      transform-origin: 0 100%;
+      transition: transform .3s ease-out;
+    }
 
     @mixin atMedium {
       display: none;
     }
   }
 
-  &__menu-icon--close-x{
-    &::before{
-      transform: rotate(45deg) scaleX(1.4) translateY(-1px);
+  &__menu-icon--close-x {
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
     }
-    .site-header__menu-icon__middle{
+
+    .site-header__menu-icon__middle {
       opacity: 0;
       transform: scaleX(0);
     }
-    &::after{
-      transform: rotate(-45deg) scaleX(1.4) translateY(2px);
 
+    &::after {
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
     }
   }
 
